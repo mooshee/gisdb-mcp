@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "description": "Source-backed county property records, owner-name portfolios and three Hamilton County lead packa...",
+  "name": "io.github.mooshee/gisdb",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://gisdb.io/mcp"
+    }
+  ],
+  "repository": {
+    "source": "github",
+    "url": "https://github.com/mooshee/gisdb-mcp"
+  },
+  "title": "GISDB",
+  "version": "0.4.2",
+  "websiteUrl": "https://gisdb.io"
+}

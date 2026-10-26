@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gisdb": {
+      "type": "streamable-http",
+      "url": "https://gisdb.io/mcp"
+    }
+  }
+}
