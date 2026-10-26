@@ -13,8 +13,13 @@ Source-backed county property records, owner-name portfolios and three Hamilton 
 
 ### Claude Code / Claude Desktop
 ```bash
+/plugin marketplace add mooshee/gisdb-mcp
+claude plugin install gisdb@gisdb-marketplace
 claude mcp add --transport http gisdb https://gisdb.io/mcp
 ```
+
+### VS Code / GitHub Copilot
+- [1-Click Install in VS Code](https://insiders.vscode.dev/redirect/mcp/install?name=gisdb&config=%7B%22type%22%3A%22http%22%2C%22url%22%3A%22https%3A%2F%2Fgisdb.io%2Fmcp%22%7D)
 
 ### OpenAI Codex CLI / Desktop
 Add `.codex-plugin/plugin.json` or `.mcp.json` pointing to `https://gisdb.io/mcp`.
@@ -25,6 +30,11 @@ Uses `.cursor-plugin/plugin.json` and `.cursor/mcp.json` (`https://gisdb.io/mcp`
 ### Gemini CLI
 ```bash
 gemini extensions install https://github.com/mooshee/gisdb-mcp
+```
+
+### Devin CLI / Desktop
+```bash
+devin plugins install mooshee/gisdb-mcp
 ```
 
 ### AWS Kiro Powers
