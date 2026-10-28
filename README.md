@@ -52,3 +52,8 @@ clawhub install gisdb-research
 - **Privacy Policy:** https://gisdb.io/privacy
 - **Terms of Service:** https://gisdb.io/terms
 - **Support:** https://gisdb.io/support
+
+
+---
+
+Built and maintained by **[Moosh Works](https://mooshworks.com)**.

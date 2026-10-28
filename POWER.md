@@ -1,9 +1,9 @@
 ---
 name: gisdb
 displayName: GISDB
-version: 0.4.2
+version: 0.4.3
 author: Daniel Hallman
-description: Source-backed county property records, owner-name portfolios and three Hamilton County lead packages.
+description: Source-backed county property records, owner portfolios, and parcel datasets.
 keywords:
   - property-records
   - county-data
@@ -18,13 +18,14 @@ mcpServers:
 
 # GISDB Power (AWS Kiro)
 
-Author: Daniel Hallman
+Author: Daniel Hallman ([Moosh Works](https://mooshworks.com))
 
-Source-backed county property records, owner-name portfolios and three Hamilton County lead packages. Ask relevant questions, preview recorded facts, save a search, and review an available single-package or monthly offer before checkout. A separate GISDB account shows payment, subscription and account-inbox CSV delivery status. Prices and coverage come from current reviewed offers. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports and motivation scoring remain unavailable.
+Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).
 
 ## Quick start
 
 1. Visit [GISDB](https://gisdb.io) or connect Kiro to `https://gisdb.io/mcp`.
+2. Built and maintained by [Moosh Works](https://mooshworks.com).
 
 ## MCP Server Configuration
 

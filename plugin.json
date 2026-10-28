@@ -4,8 +4,114 @@
     "name": "Daniel Hallman",
     "url": "https://gisdb.io"
   },
-  "description": "Source-backed county property records, owner-name portfolios and three Hamilton County lead packages. Ask relevant questions, preview recorded facts, save a search, and review an available single-package or monthly offer before checkout. A separate GISDB account shows payment, subscription and account-inbox CSV delivery status. Prices and coverage come from current reviewed offers. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports and motivation scoring remain unavailable.",
+  "description": "Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).",
+  "extensions": {
+    "com.openai": {
+      "categories": [
+        "Productivity",
+        "Business"
+      ],
+      "displayName": "GISDB",
+      "interface": {
+        "brandColor": "#4F46E5",
+        "capabilities": [],
+        "category": "Business & Operations",
+        "composerIcon": "./assets/icon.png",
+        "defaultPrompt": [
+          "Browse Hamilton County, TN property records and show the source and limitations.",
+          "Save my Hamilton County property search criteria and show recorded parcel attributes.",
+          "Resume my saved GISDB search and check the delivery status of my existing order."
+        ],
+        "developerName": "Daniel Hallman",
+        "displayName": "GISDB",
+        "logo": "./assets/icon.png",
+        "longDescription": "Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).",
+        "privacyPolicyURL": "https://gisdb.io/privacy",
+        "shortDescription": "Source-backed county proper...",
+        "supportURL": "https://gisdb.io/support",
+        "termsOfServiceURL": "https://gisdb.io/terms",
+        "websiteURL": "https://gisdb.io"
+      },
+      "privacyPolicy": "https://gisdb.io/privacy",
+      "publication": {
+        "release_notes": "Release v0.4.3: verified Streamable HTTP MCP tools and skills for GISDB."
+      },
+      "review": {
+        "commerce": false,
+        "commerce_description": "GISDB provides MCP tool execution and structured output. It does not process direct in-chat payments.",
+        "test_cases": {
+          "negative": [
+            {
+              "description": "Flight and travel booking",
+              "prompt": "Book a roundtrip flight from New York to London for next week."
+            },
+            {
+              "description": "Banking and fund transfer",
+              "prompt": "Transfer $500 from my checking account to my savings account immediately."
+            },
+            {
+              "description": "Personal calendar appointment",
+              "prompt": "Add a dentist appointment to my Google Calendar for 3 PM tomorrow."
+            }
+          ],
+          "positive": [
+            {
+              "description": "Test Case 1: County property record search",
+              "expected_behavior": "Grounded, accurate response using GISDB tools with source links, official identifiers, and verification details.",
+              "prompt": "Browse Hamilton County, TN property records and show the source and limitations.",
+              "tools_triggered": "gisdb_search_records"
+            },
+            {
+              "description": "Test Case 2: Save property search criteria",
+              "expected_behavior": "Grounded, accurate response using GISDB tools with source links, official identifiers, and verification details.",
+              "prompt": "Help me save a property search and explain any available recurring offer before I decide.",
+              "tools_triggered": "gisdb_save_search"
+            },
+            {
+              "description": "Test Case 3: Order and delivery status check",
+              "expected_behavior": "Grounded, accurate response using GISDB tools with source links, official identifiers, and verification details.",
+              "prompt": "Resume my GISDB search and check the payment and delivery status of my existing order.",
+              "tools_triggered": "gisdb_get_order"
+            },
+            {
+              "description": "Test Case 4: County catalog and coverage check",
+              "expected_behavior": "Returns authoritative, dated records from GISDB without inferring unverified claims.",
+              "prompt": "What are the data coverage boundaries, source freshness dates, and jurisdiction limits of GISDB?",
+              "tools_triggered": "gisdb_search_catalog"
+            },
+            {
+              "description": "Test Case 5: County dataset metadata inspection",
+              "expected_behavior": "Returns authoritative, dated records from GISDB without inferring unverified claims.",
+              "prompt": "Inspect the Hamilton County dataset metadata and show official citations using GISDB.",
+              "tools_triggered": "gisdb_get_metadata"
+            }
+          ]
+        }
+      },
+      "termsOfService": "https://gisdb.io/terms"
+    }
+  },
   "homepage": "https://gisdb.io",
+  "interface": {
+    "brandColor": "#4F46E5",
+    "capabilities": [],
+    "category": "Business & Operations",
+    "composerIcon": "./assets/icon.png",
+    "defaultPrompt": [
+      "Browse Hamilton County, TN property records and show the source and limitations.",
+      "Save my Hamilton County property search criteria and show recorded parcel attributes.",
+      "Resume my saved GISDB search and check the delivery status of my existing order."
+    ],
+    "developerName": "Daniel Hallman",
+    "displayName": "GISDB",
+    "logo": "./assets/icon.png",
+    "longDescription": "Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).",
+    "privacyPolicyURL": "https://gisdb.io/privacy",
+    "shortDescription": "Source-backed county proper...",
+    "supportURL": "https://gisdb.io/support",
+    "termsOfServiceURL": "https://gisdb.io/terms",
+    "websiteURL": "https://gisdb.io"
+  },
   "keywords": [
     "property-records",
     "county-data",
@@ -15,5 +121,5 @@
   ],
   "name": "gisdb",
   "repository": "https://github.com/mooshee/gisdb-mcp",
-  "version": "0.4.2"
+  "version": "0.4.3"
 }

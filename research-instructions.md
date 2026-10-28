@@ -1,6 +1,7 @@
 # GISDB
 
-Source-backed county property records, owner-name portfolios and three Hamilton County lead packages. Ask relevant questions, preview recorded facts, save a search, and review an available single-package or monthly offer before checkout. A separate GISDB account shows payment, subscription and account-inbox CSV delivery status. Prices and coverage come from current reviewed offers. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports and motivation scoring remain unavailable.
+Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).
 
 Website: https://gisdb.io
 MCP Endpoint: https://gisdb.io/mcp
+Publisher: Moosh Works (https://mooshworks.com)

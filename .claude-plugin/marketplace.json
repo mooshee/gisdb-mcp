@@ -1,20 +1,22 @@
 {
   "metadata": {
-    "description": "Source-backed county property records, owner-name portfolios and three Hamilton County lead packages.",
-    "version": "0.4.2"
+    "description": "Source-backed county property records, owner portfolios, and parcel datasets.",
+    "version": "0.4.3"
   },
   "name": "gisdb",
   "owner": {
     "email": "daniel@mooshworks.com",
-    "name": "Daniel Hallman"
+    "name": "Daniel Hallman",
+    "url": "https://mooshworks.com"
   },
   "plugins": [
     {
       "author": {
         "email": "daniel@mooshworks.com",
-        "name": "Daniel Hallman"
+        "name": "Daniel Hallman",
+        "url": "https://mooshworks.com"
       },
-      "description": "Source-backed county property records, owner-name portfolios and three Hamilton County lead packages. Ask relevant questions, preview recorded facts, save a search, and review an available single-package or monthly offer before checkout. A separate GISDB account shows payment, subscription and account-inbox CSV delivery status. Prices and coverage come from current reviewed offers. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports and motivation scoring remain unavailable.",
+      "description": "Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).",
       "homepage": "https://gisdb.io",
       "keywords": [
         "property-records",
@@ -27,7 +29,7 @@
       "name": "gisdb",
       "repository": "https://github.com/mooshee/gisdb-mcp",
       "source": "./",
-      "version": "0.4.2"
+      "version": "0.4.3"
     }
   ]
 }
