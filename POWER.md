@@ -1,9 +1,9 @@
 ---
 name: gisdb
 displayName: GISDB
-version: 0.4.3
+version: 0.4.4
 author: Daniel Hallman
-description: Source-backed county property records, owner portfolios, and parcel datasets.
+description: Browse county records and group parcels by recorded owner name.
 keywords:
   - property-records
   - county-data
@@ -16,18 +16,19 @@ mcpServers:
     url: https://gisdb.io/mcp
 ---
 
-# GISDB Power (AWS Kiro)
+# GISDB for Kiro
 
 Author: Daniel Hallman ([Moosh Works](https://mooshworks.com))
 
-Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).
+Browse county property records, group parcels by recorded owner name, and find available datasets. Preview records, save a search, and check whether your purchased CSV is ready in your account inbox. Weekly checks may find no new records. Added notice, delinquency and municipal data, CAD exports, and estimates of an owner's willingness to sell are unavailable. Built by Moosh Works (https://mooshworks.com).
 
 ## Quick start
 
-1. Visit [GISDB](https://gisdb.io) or connect Kiro to `https://gisdb.io/mcp`.
-2. Built and maintained by [Moosh Works](https://mooshworks.com).
+1. Open [GISDB](https://gisdb.io) for county records and setup instructions.
+2. Add `https://gisdb.io/mcp` as an MCP server in Kiro using the configuration below. Complete any required sign-in.
+3. Check that the connection lists the tools before starting a task.
 
-## MCP Server Configuration
+## Server configuration
 
 ```json
 {
@@ -40,7 +41,7 @@ Source-backed county property records, owner portfolios, and parcel datasets. As
 }
 ```
 
-## Tools Available
+## Available tools
 
 - `gisdb_cancel_subscription`
 - `gisdb_continue_search`

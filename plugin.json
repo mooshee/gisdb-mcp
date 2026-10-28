@@ -4,7 +4,7 @@
     "name": "Daniel Hallman",
     "url": "https://gisdb.io"
   },
-  "description": "Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).",
+  "description": "Browse county property records, group parcels by recorded owner name, and find available datasets. Preview records, save a search, and check whether your purchased CSV is ready in your account inbox. Weekly checks may find no new records. Added notice, delinquency and municipal data, CAD exports, and estimates of an owner's willingness to sell are unavailable. Built by Moosh Works (https://mooshworks.com).",
   "extensions": {
     "com.openai": {
       "categories": [
@@ -25,16 +25,16 @@
         "developerName": "Daniel Hallman",
         "displayName": "GISDB",
         "logo": "./assets/icon.png",
-        "longDescription": "Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).",
+        "longDescription": "Browse county property records, group parcels by recorded owner name, and find available datasets. Preview records, save a search, and check whether your purchased CSV is ready in your account inbox. Weekly checks may find no new records. Added notice, delinquency and municipal data, CAD exports, and estimates of an owner's willingness to sell are unavailable. Built by Moosh Works (https://mooshworks.com).",
         "privacyPolicyURL": "https://gisdb.io/privacy",
-        "shortDescription": "Source-backed county proper...",
+        "shortDescription": "County property records",
         "supportURL": "https://gisdb.io/support",
         "termsOfServiceURL": "https://gisdb.io/terms",
         "websiteURL": "https://gisdb.io"
       },
       "privacyPolicy": "https://gisdb.io/privacy",
       "publication": {
-        "release_notes": "Release v0.4.3: verified Streamable HTTP MCP tools and skills for GISDB."
+        "release_notes": "Version 0.4.4, October 28, 2026: clearer county-record, saved-search, and purchase instructions, complete listing summaries, and updated setup guidance. Existing connections and account permissions are unchanged."
       },
       "review": {
         "commerce": false,
@@ -57,31 +57,31 @@
           "positive": [
             {
               "description": "Test Case 1: County property record search",
-              "expected_behavior": "Grounded, accurate response using GISDB tools with source links, official identifiers, and verification details.",
+              "expected_behavior": "Returns available Hamilton County records with their source dates and limitations. Leaves missing facts unknown and makes no claim about willingness to sell.",
               "prompt": "Browse Hamilton County, TN property records and show the source and limitations.",
               "tools_triggered": "gisdb_search_records"
             },
             {
               "description": "Test Case 2: Save property search criteria",
-              "expected_behavior": "Grounded, accurate response using GISDB tools with source links, official identifiers, and verification details.",
+              "expected_behavior": "Saves the selected search under the connected GISDB account. Shows any returned recurring offer and its terms without starting a purchase or subscription.",
               "prompt": "Help me save a property search and explain any available recurring offer before I decide.",
               "tools_triggered": "gisdb_save_search"
             },
             {
               "description": "Test Case 3: Order and delivery status check",
-              "expected_behavior": "Grounded, accurate response using GISDB tools with source links, official identifiers, and verification details.",
+              "expected_behavior": "Reopens the selected search and reads the same account-owned order. Reports payment, subscription access and CSV availability separately.",
               "prompt": "Resume my GISDB search and check the payment and delivery status of my existing order.",
               "tools_triggered": "gisdb_get_order"
             },
             {
               "description": "Test Case 4: County catalog and coverage check",
-              "expected_behavior": "Returns authoritative, dated records from GISDB without inferring unverified claims.",
+              "expected_behavior": "Lists returned county records products and source dates. Explains that a directory entry does not mean a package is available to buy.",
               "prompt": "What are the data coverage boundaries, source freshness dates, and jurisdiction limits of GISDB?",
               "tools_triggered": "gisdb_search_catalog"
             },
             {
               "description": "Test Case 5: County dataset metadata inspection",
-              "expected_behavior": "Returns authoritative, dated records from GISDB without inferring unverified claims.",
+              "expected_behavior": "Shows the returned Hamilton County dataset details, source links, dates and missing facts. Does not infer a current tax year or CAD compatibility.",
               "prompt": "Inspect the Hamilton County dataset metadata and show official citations using GISDB.",
               "tools_triggered": "gisdb_get_metadata"
             }
@@ -105,9 +105,9 @@
     "developerName": "Daniel Hallman",
     "displayName": "GISDB",
     "logo": "./assets/icon.png",
-    "longDescription": "Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).",
+    "longDescription": "Browse county property records, group parcels by recorded owner name, and find available datasets. Preview records, save a search, and check whether your purchased CSV is ready in your account inbox. Weekly checks may find no new records. Added notice, delinquency and municipal data, CAD exports, and estimates of an owner's willingness to sell are unavailable. Built by Moosh Works (https://mooshworks.com).",
     "privacyPolicyURL": "https://gisdb.io/privacy",
-    "shortDescription": "Source-backed county proper...",
+    "shortDescription": "County property records",
     "supportURL": "https://gisdb.io/support",
     "termsOfServiceURL": "https://gisdb.io/terms",
     "websiteURL": "https://gisdb.io"
@@ -121,5 +121,5 @@
   ],
   "name": "gisdb",
   "repository": "https://github.com/mooshee/gisdb-mcp",
-  "version": "0.4.3"
+  "version": "0.4.4"
 }

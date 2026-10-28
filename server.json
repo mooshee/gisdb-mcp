@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "description": "Source-backed county property records, owner portfolios, and parcel datasets. (mooshworks.com)",
+  "description": "Browse county records and group parcels by recorded owner name. (mooshworks.com)",
   "name": "io.github.mooshee/gisdb",
   "remotes": [
     {
@@ -13,6 +13,6 @@
     "url": "https://github.com/mooshee/gisdb-mcp"
   },
   "title": "GISDB",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "websiteUrl": "https://gisdb.io"
 }

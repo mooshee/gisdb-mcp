@@ -6,7 +6,11 @@ GISDB private tools require the connected GISDB account and the applicable `gisd
 
 ## Save and purchase
 
-Read the saved workflow before resuming. Preserve its latest revision and complete explicit answers/skips. Changed source or offer context requires reconfirmation. Reuse an idempotency key only for an identical retry; changed inputs need a new key. Saving a search starts no payment or subscription.
+1. Read the saved search before resuming. Keep its latest revision, explicit answers and skipped question IDs.
+2. If the source or offer changed, show the change and ask the user to confirm before continuing.
+3. For an identical retry, reuse its idempotency key. Changed inputs need a new key.
+
+Saving a search does not start a payment or subscription.
 
 Show the returned offer's amount, currency, coverage, billing interval, source-check cadence and limitations. A recurring offer must be configured and match the selected saved search. Invoke `gisdb_create_checkout` only after the user requests that reviewed purchase. Retain its returned order ID. Payment details belong on the hosted checkout page; a checkout link or browser return is not payment evidence.
 
@@ -16,7 +20,7 @@ Keep the original search, offer, request and retry key together through the brow
 
 ## Verify delivery
 
-Retrieve paid lead CSV files through the GISDB account inbox using only protected download paths returned for the same owned order. A county-record package is a distinct ZIP product. Initial lead delivery retains the exact source selected at checkout, even if newer county data exists. Later recurring checks can advance under the same fixed package contract.
+Retrieve paid lead CSV files through the GISDB account inbox. Use only protected download paths returned for that account's order. County-record packages are a separate ZIP product. The first lead delivery uses the exact source selected at checkout, even if newer county data is available. Later recurring checks may use newer records under the same package terms.
 
 Report an artifact only when its delivery state supports that claim; a URL or active subscription alone does not prove downloaded bytes. When testing delivery, verify the downloaded artifact against its returned identity. Share only the user's own order and download links. Do not promise email, activation, CSV delivery or no-new-leads without corresponding verified evidence.
 

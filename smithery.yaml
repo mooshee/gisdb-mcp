@@ -1,7 +1,7 @@
 name: io.github.mooshee/gisdb
 displayName: GISDB
-description: Source-backed county property records, owner portfolios, and parcel datasets.
-version: 0.4.3
+description: Browse county records and group parcels by recorded owner name.
+version: 0.4.4
 homepage: https://gisdb.io
 repository: https://github.com/mooshee/gisdb-mcp
 license: MIT

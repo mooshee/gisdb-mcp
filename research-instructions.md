@@ -1,6 +1,6 @@
 # GISDB
 
-Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).
+Browse county property records, group parcels by recorded owner name, and find available datasets. Preview records, save a search, and check whether your purchased CSV is ready in your account inbox. Weekly checks may find no new records. Added notice, delinquency and municipal data, CAD exports, and estimates of an owner's willingness to sell are unavailable. Built by Moosh Works (https://mooshworks.com).
 
 Website: https://gisdb.io
 MCP Endpoint: https://gisdb.io/mcp

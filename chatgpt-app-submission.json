@@ -1,0 +1,281 @@
+{
+  "$schema": "https://developers.openai.com/plugins/schemas/chatgpt-app-submission.v1.json",
+  "app_info": {
+    "category": "BUSINESS",
+    "contact_email": "daniel@mooshworks.com",
+    "description": "Browse county property records, group parcels by recorded owner name, and compare three Hamilton County lead packages. Preview records, save a search, and review the price and terms for one package or monthly updates before checkout. Your GISDB account shows payment, subscription and CSV delivery status. Prices and included records depend on the available offer. Weekly checks may find no new records. Added notice, delinquency and municipal data, CAD exports, and estimates of selling motivation are unavailable.",
+    "display_name": "GISDB",
+    "homepage": "https://gisdb.io",
+    "privacy_policy_url": "https://gisdb.io/privacy",
+    "subtitle": "County property records and Hamilton lead packages",
+    "terms_of_service_url": "https://gisdb.io/terms"
+  },
+  "mcp_config": {
+    "transport": "streamable-http",
+    "url": "https://gisdb.io/mcp"
+  },
+  "negative_test_cases": [
+    {
+      "description": "Flight and travel booking",
+      "expected_output": "Do not invoke GISDB; airline reservations are outside its domain.",
+      "user_prompt": "Book a roundtrip flight from New York to London for next week."
+    },
+    {
+      "description": "Banking and fund transfer",
+      "expected_output": "Do not invoke GISDB; it cannot access private bank accounts or transfer funds.",
+      "user_prompt": "Transfer $500 from my checking account to my savings account immediately."
+    },
+    {
+      "description": "Personal calendar appointment",
+      "expected_output": "Do not invoke GISDB; calendar management is outside its tools.",
+      "user_prompt": "Add a dentist appointment to my Google Calendar for 3 PM tomorrow."
+    }
+  ],
+  "positive_test_cases": [
+    {
+      "description": "Test Case 1: County property record search",
+      "expected_output": "Returns available Hamilton County records with their source dates and limitations. Leaves missing facts unknown and makes no claim about willingness to sell.",
+      "tools_triggered": "gisdb_search_records",
+      "user_prompt": "Browse Hamilton County, TN property records and show the source and limitations."
+    },
+    {
+      "description": "Test Case 2: Save property search criteria",
+      "expected_output": "Saves the selected search under the connected GISDB account. Shows any returned recurring offer and its terms without starting a purchase or subscription.",
+      "tools_triggered": "gisdb_save_search",
+      "user_prompt": "Help me save a property search and explain any available recurring offer before I decide."
+    },
+    {
+      "description": "Test Case 3: Order and delivery status check",
+      "expected_output": "Reopens the selected search and reads the same account-owned order. Reports payment, subscription access and CSV availability separately.",
+      "tools_triggered": "gisdb_get_order",
+      "user_prompt": "Resume my GISDB search and check the payment and delivery status of my existing order."
+    },
+    {
+      "description": "Test Case 4: County catalog and coverage check",
+      "expected_output": "Lists returned county records products and source dates. Explains that a directory entry does not mean a package is available to buy.",
+      "tools_triggered": "gisdb_search_catalog",
+      "user_prompt": "Which counties and records does GISDB cover, and when were the sources updated?"
+    },
+    {
+      "description": "Test Case 5: County dataset metadata inspection",
+      "expected_output": "Shows the returned Hamilton County dataset details, source links, dates and missing facts. Does not infer a current tax year or CAD compatibility.",
+      "tools_triggered": "gisdb_get_metadata",
+      "user_prompt": "Inspect the Hamilton County dataset metadata and show official citations using GISDB."
+    }
+  ],
+  "review_instructions": {
+    "data_safety_attestation": "This MCP server does not retain user query data for model training.",
+    "test_account_credentials": "Public questions and record previews need no sign-in. Saving searches and reviewing orders require a dedicated GISDB reviewer account with the stated permissions. Purchase cases require an authorized test environment and a reviewed offer. Provide reviewer access through secure dashboard fields; do not put credentials in this package.",
+    "video_walkthrough_url": "REQUIRED BEFORE SUBMISSION: Add a reviewer-accessible recording of the GISDB review cases. No recording has been verified."
+  },
+  "schema_version": 1,
+  "test_cases": [
+    {
+      "description": "County property record search",
+      "expected_output": "Returns available Hamilton County records with their source dates and limitations. Leaves missing facts unknown and makes no claim about willingness to sell.",
+      "user_prompt": "Browse Hamilton County, TN property records and show the source and limitations."
+    },
+    {
+      "description": "Save a search and review an offer",
+      "expected_output": "Saves the selected search under the connected GISDB account. Shows any returned recurring offer and its terms without starting a purchase or subscription.",
+      "user_prompt": "Help me save a property search and explain any available recurring offer before I decide."
+    },
+    {
+      "description": "Check an existing order",
+      "expected_output": "Reopens the selected search and reads the same account-owned order. Reports payment, subscription access and CSV availability separately.",
+      "user_prompt": "Resume my GISDB search and check the payment and delivery status of my existing order."
+    },
+    {
+      "description": "Test Case 4: Coverage and data freshness verification",
+      "expected_output": "Lists returned county records products and source dates. Explains that a directory entry does not mean a package is available to buy.",
+      "user_prompt": "Which counties and records does GISDB cover, and when were the sources updated?"
+    },
+    {
+      "description": "Test Case 5: Public record audit and verification",
+      "expected_output": "Identifies the requested records and shows their available official citations and dates. Distinguishes recorded facts from unsupported conclusions.",
+      "user_prompt": "Audit or verify specific public records and show official citations using GISDB."
+    }
+  ],
+  "tools": {
+    "gisdb_cancel_subscription": {
+      "annotations": {
+        "destructiveHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "Stops future subscription renewal at the confirmed period end when the user requests cancellation.",
+        "open_world_justification": "Updates the selected subscription through the billing service.",
+        "read_only_justification": "Changes billing by stopping renewal of the selected subscription when requested. Reports the confirmed period end."
+      }
+    },
+    "gisdb_continue_search": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Updates the selected saved search with explicit answers and skipped questions using its current revision."
+      }
+    },
+    "gisdb_create_checkout": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Creates the requested checkout through the payment service.",
+        "read_only_justification": "Creates an order and hosted checkout for the exact offer the user reviewed and requested. It does not establish successful payment or delivery."
+      }
+    },
+    "gisdb_get_lead_updates": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Read this account's saved lead-search updates, delivery revision, source/check timestamps and available downloads. No-new-leads requires a successful source check. A source failure preserves the last successful checkpoint. Subscription status and delivery status are separate. It does not change saved records."
+      }
+    },
+    "gisdb_get_metadata": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Read verified county records product metadata, source scope, missing facts and limitations. Returns unavailable when no verified release exists; no CAD compatibility or current tax year is assumed. It does not change saved records."
+      }
+    },
+    "gisdb_get_order": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Read the same account-owned order after payment, browser return or uncertain failure. Independently verifies payment, subscription, entitlement and delivery. A link or paid checkout is not proof of delivery. Use only order_id returned for this account. It does not change saved records."
+      }
+    },
+    "gisdb_get_search": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Resume an account-owned workflow and recheck current source/offer context. Preserve the user's preferences; ask for reconfirmation when the returned context changed. It does not change saved records."
+      }
+    },
+    "gisdb_guide_search": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Find property leads, owner portfolios or released county data. Ask next_question one at a time, accept unknown/skip, and resend accumulated explicit answers and skipped IDs. Returns real available coverage, source information, preview and current offers. No sign-in or purchase required. An unsupported notice category never falls back to assessment leads. It does not change saved records."
+      }
+    },
+    "gisdb_list_saved_searches": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "List only this connected GISDB account's saved searches, including their workflow IDs and revisions. Reopen a search before treating its source as current. It does not change saved records."
+      }
+    },
+    "gisdb_open_billing_portal": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Opens the hosted billing service for the connected account.",
+        "read_only_justification": "Creates a billing-management session for the connected account when requested. Browser changes must be checked afterward."
+      }
+    },
+    "gisdb_save_search": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Saves the selected search and its explicit criteria under the connected GISDB account. Saving does not start a purchase or subscription."
+      }
+    },
+    "gisdb_search_catalog": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Find county records products and geographic directory entries. Returned availability, exact prices, source scope and limitations determine what can be purchased; directory membership does not establish lead, assessment or CAD coverage. It does not change saved records."
+      }
+    },
+    "gisdb_search_records": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Inspect retained county property observations or repeated owner-name groups. Choose property_records for address, parcel or owner-label search; choose owner_portfolios for unfiltered owner-name groups. Property records allow 1–250 rows and offsets through 1000000; portfolios allow 1–100 rows and no query, signal or offset. JSON preview only. Source labels do not establish identity, authority, debt, equity, distress, cash purchases or sale intent. It does not change saved records."
+      }
+    },
+    "gisdb_set_lead_updates": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Changes the selected update schedule to pause or resume using the requested action and current revision. Pausing does not cancel billing."
+      }
+    },
+    "gisdb_start_search": {
+      "annotations": {
+        "destructiveHint": false,
+        "openWorldHint": false,
+        "readOnlyHint": false
+      },
+      "justifications": {
+        "destructive_justification": "This action does not delete records or revoke access.",
+        "open_world_justification": "Uses data or settings in the connected account or this service.",
+        "read_only_justification": "Creates a private search for the connected GISDB account using the selected criteria. It does not start a purchase or subscription."
+      }
+    }
+  }
+}

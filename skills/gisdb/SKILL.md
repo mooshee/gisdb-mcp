@@ -1,15 +1,18 @@
 ---
 name: gisdb
-description: Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).
+description: Browse county property records, group parcels by recorded owner name, and find available datasets. Preview records, save a search, and check whether your purchased CSV is ready in your account inbox. Weekly checks may find no new records. Added notice, delinquency and municipal data, CAD exports, and estimates of an owner's willingness to sell are unavailable. Built by Moosh Works (https://mooshworks.com).
 ---
 
 # GISDB
 
-Source-backed county property records, owner portfolios, and parcel datasets. Ask relevant questions, preview recorded facts, save search criteria, and check account-inbox CSV delivery status. Weekly source checks do not guarantee new records. Notice, delinquency and municipal enrichment, CAD exports, and motivation scoring remain unavailable. Built by Moosh Works (https://mooshworks.com).
+Browse county property records, group parcels by recorded owner name, and find available datasets. Preview records, save a search, and check whether your purchased CSV is ready in your account inbox. Weekly checks may find no new records. Added notice, delinquency and municipal data, CAD exports, and estimates of an owner's willingness to sell are unavailable. Built by Moosh Works (https://mooshworks.com).
 
 Built by [Moosh Works](https://mooshworks.com).
 
 ## Quick start
 
-1. Open [GISDB](https://gisdb.io) to use the web studio, browse documentation, or connect your agent to `https://gisdb.io/mcp`.
-2. Built and maintained by [Moosh Works](https://mooshworks.com).
+1. Follow the [GISDB setup guide](https://gisdb.io/integrations/0.4.1) to connect a supported assistant to `https://gisdb.io/mcp`.
+2. Ask for records in a county and state. Check the response for sources, dates, and missing information.
+3. If you want to save a search or manage an order, follow the GISDB sign-in link and review the requested permissions.
+
+Read the `gisdb-research` skill for the full research, purchase, and recovery instructions. Use the current tool catalog and returned identifiers.

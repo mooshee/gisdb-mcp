@@ -2,7 +2,7 @@
 
 Author: Daniel Hallman
 
-Use the live GISDB tool schemas. Catalog directory membership does not establish released products or complete lead coverage. Retained observations are dated source facts; a retrieval date does not establish a current tax year.
+Use the current GISDB tool schemas. A county's directory entry does not mean its records are available to buy or that all leads are covered. Show the source date for saved records. The date a record was retrieved does not establish its tax year.
 
 ## Inspect records
 
@@ -10,7 +10,7 @@ Use `gisdb_search_records` with an explicit county, state and mode:
 
 | Mode | Supported inputs beyond county and state | Meaning |
 | --- | --- | --- |
-| `property_records` | Optional `q` address, parcel or owner-label query; `signal=assessment`; limit 1–250; offset 0–1,000,000; optional `format=json` | Retained property observations with nullable facts. |
+| `property_records` | Optional `q` address, parcel or owner-label query; `signal=assessment`; limit 1–250; offset 0–1,000,000; optional `format=json` | Saved property records. Missing facts remain empty. |
 | `owner_portfolios` | Limit 1–100; optional `format=json` | Repeated source owner-name labels, observed parcel counts and total county-appraised value. Query, signal and offset filters are unavailable for this mode. |
 
 Keep missing facts unknown. Owner-name groups do not establish legal identity, ownership authority, cash purchases, buying activity, acquisition prices, debt, equity or sale intent. Public previews support JSON only; do not pass CSV as a format. A purchased CSV requires its separate reviewed offer and verified delivery. Honor unavailable results. Do not call retired research aliases or use notice, scoring, CAD, sample or cash-buyer tools outside the public catalog.
@@ -29,4 +29,4 @@ Preserve the explicit `answers.delivery` choice of `one_time` or `recurring`. Pa
 
 Source update timing varies by county and dataset. Attribute Hamilton's approximately monthly change files only to that documented source; do not apply that interval to other counties. Keep source publication dates, retained snapshot dates and the offer's source-check cadence distinct. A check can find no new records, and an import date does not establish a current tax year. If no publication cadence is supplied, say it is unknown.
 
-Notice, delinquency and municipal enrichment, contact enrichment, CAD bundles, motivation scoring and verified buyer directories are unavailable. Do not substitute assessment leads for an unsupported notice request.
+Added notice, delinquency, municipal and contact data are unavailable. So are CAD bundles, estimates of selling motivation and verified buyer directories. Do not substitute assessment leads for an unsupported notice request.
